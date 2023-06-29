@@ -1,0 +1,16 @@
+{
+  "seller": [
+    {
+      "name": "shiv",
+      "email": "shivajalidalvi10@gamil.com",
+      "password": "1234",
+      "id": 1
+    },
+    {
+      "name": "Shivanjali kalokhe",
+      "password": "12345",
+      "email": "shivanjalidalvi10@gmail.com",
+      "id": 2
+    }
+  ]
+}
