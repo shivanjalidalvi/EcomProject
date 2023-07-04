@@ -12,5 +12,25 @@
       "email": "shivanjalidalvi10@gmail.com",
       "id": 2
     }
+  ],
+  "product": [
+    {
+      "name": "iPhone 13",
+      "price": "2500",
+      "color": "pink",
+      "category": "mobile",
+      "description": "ultra light",
+      "image": "https://tejarra-media.s3.amazonaws.com/70585/medialibraryGRBT2z",
+      "id": 1
+    },
+    {
+      "name": "iPhone 14",
+      "price": "1000000",
+      "color": "white",
+      "category": "mobile",
+      "description": "ultra light",
+      "image": "https://tejarra-media.s3.amazonaws.com/70585/medialibraryGRBT2z",
+      "id": 2
+    }
   ]
 }

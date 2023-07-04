@@ -1,10 +1,20 @@
 export interface SignUp{
-    name:String,
-    password :String,
-    email:String
+    name:string,
+    password :string,
+    email:string
 }
 
 export interface login{
-    email:String,
-    password:String
+    email:string,
+    password:string
+}
+
+export interface product{
+    id:number,
+    name:string,
+    price:number,
+    category:string,
+    color:string,
+    description:string,
+    image:string
 }

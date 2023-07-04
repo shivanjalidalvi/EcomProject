@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SellerService } from '../services/seller.service';
 import { Router } from '@angular/router';
 import { SignUp, login } from '../dataTypes';
@@ -7,11 +7,12 @@ import { SignUp, login } from '../dataTypes';
   templateUrl: './seller.component.html',
   styleUrls: ['./seller.component.css']
 })
-export class SellerComponent {
+export class SellerComponent implements OnInit{
   showLogin=false;
  authError:String='';
+
   constructor(private _seller:SellerService,private router:Router){}
-   ngOnInIt():void{
+   ngOnInit():void{
     this._seller.reloadSeller();
       }
   signUp(data:SignUp){
@@ -32,7 +33,7 @@ export class SellerComponent {
  this.showLogin=false;
   }
 
-Login(data:login){
+Login(data:SignUp){
  /// console.warn(data);
  this.authError='';
   this._seller.userLogin(data)

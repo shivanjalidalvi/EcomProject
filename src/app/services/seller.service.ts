@@ -8,16 +8,18 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class SellerService {
+
 isSellerLoggedIn=new BehaviorSubject<boolean>(false);
 isLoginError=new EventEmitter<boolean>(false)
+
   constructor(private http:HttpClient,private route:Router) { }
+  
   userSignUp(data:SignUp){ 
    this.http.post('http://localhost:3000/seller',
    data,
    {observe:'response'}).subscribe(res=>{
      console.log("result",res);
      if(res){
-
        localStorage.setItem('seller',JSON.stringify(res.body))
        this.route.navigate(['seller-home'])
      }
@@ -34,17 +36,18 @@ isLoginError=new EventEmitter<boolean>(false)
   }
 
   userLogin(data:login){
- console.warn(data);
-this.http.get(`http://localhost:3000/seller?email=${data.email}&password=${data.password}`,
-{observe:'response'}).subscribe((res:any)=>{
-  console.warn(res);
-  if(res && res.body && res.body.length){
-       localStorage.setItem('seller',JSON.stringify(res.body))
+    this.http.get(`http://localhost:3000/seller?email=${data.email}&password=${data.password}`,
+    {observe:'response'}).subscribe((result:any)=>{
+     console.warn(result)
+     if(result && result.body && result.body.length===1){
+       this.isLoginError.emit(false)
+       localStorage.setItem('seller',JSON.stringify(result.body))
        this.route.navigate(['seller-home'])
-  }else{
-    console.log('user login fail')
-    this.isLoginError.emit(true);
-  }
-})
-  } 
+     }else{
+       console.warn("login failed");
+       this.isLoginError.emit(true)
+     }
+    })
+   }
+  
 }
